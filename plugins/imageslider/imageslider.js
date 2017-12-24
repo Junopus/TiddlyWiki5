@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/junopus/imageslider/imageslider.js
+title: $:/plugins/Junopus/imageslider/imageslider.js
 type: application/javascript
 module-type: macro
 
@@ -55,7 +55,7 @@ exports.run = function(title, dim, pages) {
         }
         var id = Date.now();
         html += "<style>";
-        html += ".ctl" + id + " {"; 
+        html += ".ctl" + id + " {";
         html += "width: 100%; height: 100%; padding: 0; margin: 0; ";
         html += "z-index: 2;";
         html += "}";
@@ -86,4 +86,3 @@ exports.run = function(title, dim, pages) {
 };
 
 })();
-
