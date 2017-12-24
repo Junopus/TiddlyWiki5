@@ -1,0 +1,35 @@
+[
+  {
+    "title": "$:/config/ShortcutInfo/fontcolor-red",
+    "modifier": "Junopus",
+    "text": "Apply red font color to selection"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-red/Caption",
+    "modifier": "Junopus",
+    "text": "Red font"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-red/Hint",
+    "modifier": "Junopus",
+    "text": "Red font"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-red/editortoolbar",
+    "modifier": "Junopus",
+    "tags": "$:/tags/EditorToolbar",
+    "icon": "$:/plugins/Junopus/utils/fontcolor-red/icon",
+    "caption": "$:/plugins/Junopus/utils/fontcolor-red/Caption",
+    "description": "$:/plugins/Junopus/utils/fontcolor-red/Hint",
+    "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]",
+    "list-after": "$:/core/ui/EditorToolbar/mono-line",
+    "shortcuts": "((fontcolor-red))",
+    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-selection' prefix='@@color:red; ' suffix='@@' />"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-red/icon",
+    "modifier": "Junopus",
+    "tags": "$:/tags/Image",
+    "text": "<span style='fill: red;'>{{$:/core/images/mono-line}}</span>"
+  }
+]

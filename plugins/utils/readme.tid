@@ -1,0 +1,13 @@
+title: $:/plugins/Junopus/utils/readme
+modifier: Junopus
+
+This plugin provides small utilities improving the usability of TiddlyWiki5.
+
+!! List of utils
+
+* Colored fonts
+** blue, red, green, magenta
+** You can edit keyboard shortcuts in [[$:/ControlPanel]].
+
+
+[[Source code|https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/utils]]

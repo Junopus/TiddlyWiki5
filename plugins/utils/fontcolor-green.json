@@ -1,0 +1,35 @@
+[
+  {
+    "title": "$:/config/ShortcutInfo/fontcolor-green",
+    "modifier": "Junopus",
+    "text": "Apply green font color to selection"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-green/Caption",
+    "modifier": "Junopus",
+    "text": "Green font"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-green/Hint",
+    "modifier": "Junopus",
+    "text": "Green font"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-green/editortoolbar",
+    "modifier": "Junopus",
+    "tags": "$:/tags/EditorToolbar",
+    "icon": "$:/plugins/Junopus/utils/fontcolor-green/icon",
+    "caption": "$:/plugins/Junopus/utils/fontcolor-green/Caption",
+    "description": "$:/plugins/Junopus/utils/fontcolor-green/Hint",
+    "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]",
+    "list-after": "$:/core/ui/EditorToolbar/mono-line",
+    "shortcuts": "((fontcolor-green))",
+    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-selection' prefix='@@color:green; ' suffix='@@' />"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fontcolor-green/icon",
+    "modifier": "Junopus",
+    "tags": "$:/tags/Image",
+    "text": "<span style='fill: green;'>{{$:/core/images/mono-line}}</span>"
+  }
+]

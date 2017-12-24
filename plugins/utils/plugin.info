@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/Junopus/utils",
+	"description": "Minor utilities",
+	"author": "Junopus",
+	"version": "0.0.1",
+	"core-version": ">=5.0.8",
+	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/utils",
+	"plugin-type": "plugin",
+	"list": "readme"
+}
