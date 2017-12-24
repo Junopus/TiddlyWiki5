@@ -32,7 +32,7 @@ exports.run = function(title, dim, pages) {
     if($tw.wiki.tiddlerExists(title)) {
         var tiddler = $tw.wiki.getTiddler(title);
         var datauri = $tw.utils.makeDataUri(tiddler.fields.text, tiddler.fields.type);
-        var originaldim = tiddler.fields.sprite_dimension.split("x");
+        var originaldim = tiddler.fields.slider_dimension.split("x");
         var width = parseInt(originaldim[0], 10);
         var height = parseInt(originaldim[1], 10);
         var ratio = height / width;
