@@ -1,5 +1,6 @@
 /*\
 title: $:/plugins/Junopus/imageslider/imageslider.js
+modifier: Junopus
 type: application/javascript
 module-type: macro
 
