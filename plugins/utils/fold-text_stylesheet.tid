@@ -1,0 +1,13 @@
+title: $:/plugins/Junopus/utils/fold-text/stylesheet
+modifier: Junopus
+tags: $:/tags/Stylesheet
+
+details.disclosure_fold-text {
+    display: block;
+}
+details.disclosure_fold-text summary {
+  display: block;
+  color: #5778d8;
+  cursor: pointer;
+  list-style: disclosure-closed inside;
+}

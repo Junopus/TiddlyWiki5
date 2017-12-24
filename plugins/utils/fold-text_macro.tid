@@ -1,0 +1,10 @@
+title: $:/plugins/Junopus/utils/fold-text/macro
+modifier: Junopus
+tags: $:/tags/Macro
+
+\define fold-text(body, title: "Show Details")
+<details class="disclosure_fold-text">
+<summary>$title$</summary>
+$body$
+</details>
+\end

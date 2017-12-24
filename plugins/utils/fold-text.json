@@ -1,0 +1,34 @@
+[
+  {
+    "title": "$:/config/ShortcutInfo/fold-text",
+    "modifier": "Junopus",
+    "text": "Create collapsible text field"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fold-text/Caption",
+    "modifier": "Junopus",
+    "text": "Fold selected text"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fold-text/Hint",
+    "modifier": "Junopus",
+    "text": "Fold selected text"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fold-text/editortoolbar",
+    "modifier": "Junopus",
+    "tags": "$:/tags/EditorToolbar",
+    "icon": "$:/plugins/Junopus/utils/fold-text/icon",
+    "caption": "{{$:/plugins/Junopus/utils/fold-text/Caption}}",
+    "description": "{{$:/plugins/Junopus/utils/fold-text/Hint}}",
+    "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]",
+    "list-after": "$:/core/ui/EditorToolbar/quote",
+    "shortcuts": "((fold-text))",
+    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-lines' prefix='<<fold-text \"\"\" ' suffix=' \"\"\">>' />"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/fold-text/icon",
+    "modifier": "Junopus",
+    "text": "{{$:/core/images/fold-button}}"
+  }
+]
