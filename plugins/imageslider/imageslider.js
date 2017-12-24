@@ -16,7 +16,7 @@ Macro to return HTML of slide animation.
 Information about this macro
 */
 
-exports.name = "sprite";
+exports.name = "imageslider";
 
 exports.params = [
     {name: "title"},
