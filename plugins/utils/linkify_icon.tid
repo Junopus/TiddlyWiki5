@@ -1,0 +1,25 @@
+title: $:/plugins/Junopus/utils/linkify/icon
+modifier: Junopus
+tags: $:/tags/Image
+
+<svg class="tc-image-format-strikethrough tc-image-button" width="22pt" height="22pt" viewBox="0 0 32 32">
+<g>
+   <title>Layer 1</title>
+   <g>
+    <path id="corcht" d="m26.3818,31.4625l5.1666,0l0,-30.99773l-5.1666,0l0,2.37141l2.8552,0l0,26.25482l-2.8552,0l0,2.3715l0,0z"/>
+   </g>
+   <g id="svg_3">
+    <path id="svg_4" d="m5.71333,0.46241l-5.16667,0l0,30.99769l5.16667,0l0,-2.3714l-2.85528,0l0,-26.25487l2.85528,0l0,-2.37142z"/>
+   </g>
+   <g id="svg_5">
+    <path id="svg_6" d="m20.18347,31.46482l5.16667,0l0,-30.99769l-5.16667,0l0,2.37141l2.85526,0l0,26.25487l-2.85526,0l0,2.37141z"/>
+   </g>
+   <g id="svg_7">
+    <path id="svg_8" d="m11.91101,0.45936l-5.16665,0l0,30.9977l5.16665,0l0,-2.37142l-2.85525,0l0,-26.25487l2.85525,0l0,-2.37141z"/>
+   </g>
+   <circle id="svg_9" r="1.5" cy="15.9636" cx="11.91505" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null"/>
+   <circle id="svg_10" r="1.5" cy="15.9636" cx="16.04839" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null"/>
+   <circle id="svg_11" r="1.5" cy="15.9636" cx="20.18172" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null"/>
+  </g>
+
+</svg>

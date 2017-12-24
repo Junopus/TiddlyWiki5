@@ -1,0 +1,29 @@
+[
+  {
+    "title": "$:/config/ShortcutInfo/linkify",
+    "modifier": "Junopus",
+    "text": "Create link to selected text"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/linkify/Caption",
+    "modifier": "Junopus",
+    "text": "Link selected text"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/linkify/Hint",
+    "modifier": "Junopus",
+    "text": "Link selected text"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/linkify/editortoolbar",
+    "modifier": "Junopus",
+    "tags": "$:/tags/EditorToolbar",
+    "icon": "$:/plugins/Junopus/utils/linkify/icon",
+    "caption": "{{$:/plugins/Junopus/utils/linkify/Caption}}",
+    "description": "{{$:/plugins/Junopus/utils/linkify/Hint}}",
+    "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]",
+    "list-after": "$:/core/ui/EditorToolbar/link",
+    "shortcuts": "((linkify))",
+    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-selection' prefix='[[' suffix=']]' />"
+  }
+]
