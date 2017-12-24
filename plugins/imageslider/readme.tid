@@ -1,0 +1,23 @@
+title: $:/plugins/junopus/imageslider/readme
+
+This plugin provides simple slideshow based on sprite animation.
+
+!! Preparations of image
+
+# Prepare an image file that all the images are merged together horizontally.
+## Suppose that 20 jpg images with dimension of width/height = 400px/300px, the merged image will be 8000px/300 px.
+# Drag the image file into the TiddlyWiki browser window, then import it.
+# Add "slider_dimension" field valued "(width)x(height)x(pagenum)"
+## i.e. 400x300x20
+
+!! Usage
+
+ `<<imageslider title [dim] [pages]>>`
+
+* title: Title of merged image tiddler.
+* dim //(optional)//: Specify the size of slideshow. Formatted as "300x200".
+** You can specify only width (aspect ratio will be conserved).
+* pages //(optional)//: Specify start/end page number. Formatted as "5-15".
+
+
+[[Source code|https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/imageslider]]
