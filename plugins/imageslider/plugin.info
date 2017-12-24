@@ -1,11 +1,10 @@
 {
-	"title": "$:/plugins/junopus/imageslider",
+	"title": "$:/plugins/Junopus/imageslider",
 	"description": "Simple slideshow",
-	"author": "junopus",
+	"author": "Junopus",
 	"version": "0.0.1",
 	"core-version": ">=5.0.8",
-	"source": "https://github.com/junopus/tw5-imageslider",
+	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/imageslider",
 	"plugin-type": "plugin",
 	"list": "readme"
 }
-
