@@ -1,0 +1,10 @@
+title: $:/plugins/Junopus/resize-image/icon
+modifier: Junopus
+
+<svg class="tc-image-size tc-image-button" width="22pt" height="22pt" viewBox="0 0 128 128">
+    <rect x="4" y="14" width="120" height="100" style="fill: none; stroke-width: 4; stroke: rgb(0,0,0); stroke-dasharray: 6,6;" />
+    <rect x="4" y="14" width="60" height="50" style="fill: none; stroke-width: 8; stroke: rgb(0,0,0);" />
+    <line x1="64" y1="64" x2="126" y2="114" style="fill: none; stroke-width: 8; stroke: rgb(0,0,0);" />
+    <line x1="64" y1="64" x2="95" y2="66" style="fill: none; stroke-width: 8; stroke: rgb(0,0,0);" />
+    <line x1="64" y1="64" x2="72" y2="94" style="fill: none; stroke-width: 8; stroke: rgb(0,0,0);" />
+</svg>

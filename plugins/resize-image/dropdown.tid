@@ -1,0 +1,31 @@
+title: $:/plugins/Junopus/resize-image/dropdown
+modifier: Junopus
+
+\define toolbar-button-resize-preset(config-title)
+
+<$button tag="a">
+
+<$action-sendmessage
+	$message="tm-edit-bitmap-operation"
+	$param="resize-image"
+	resizeTo=$(size)$
+/>
+
+<$text text=$(size)$/>
+
+</$button>
+
+\end
+
+\define toolbar-button-resize(config-title)
+''{{$:/plugins/Junopus/resize-image/Hint}}''
+
+<$list filter={{$:/plugins/Junopus/resize-image/size-preset}} variable="size">
+
+<$macrocall $name="toolbar-button-resize-preset" config-title="$config-title$"/>
+
+</$list>
+
+\end
+
+<$macrocall $name="toolbar-button-resize" config-title=<<qualify "$:/state/Resize/">>/>
