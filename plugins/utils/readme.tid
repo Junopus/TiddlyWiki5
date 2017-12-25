@@ -8,6 +8,14 @@ This plugin provides small utilities improving the usability of TiddlyWiki5.
 * Colored fonts
 ** blue, red, green, magenta
 ** You can edit keyboard shortcuts in [[$:/ControlPanel]].
-
+* Linkify
+** Wrap selected text by [[]].
+* Fold-text
+** Create collapsible text field.
+* Quiz
+** Create simple quizzes.
+** `<<quiz "answer">>` --> <<quiz "answer">>
+** `<<quiz "question|answer">>` --> <<quiz "question|answer">>
+** `<<quiz "question|answer1|answer2">>` --> <<quiz "question|answer1|answer2">>
 
 [[Source code|https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/utils]]
