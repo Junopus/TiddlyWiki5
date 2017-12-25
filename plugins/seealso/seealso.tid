@@ -1,0 +1,20 @@
+title: $:/plugins/Junopus/seealso/seealso.tid
+modifier: Junopus
+tags: $:/tags/ViewTemplate
+
+<$set name="currentTitle" value={{!!title}}>
+<$set name="searched" filter="[!is[system]!is[current]!is[image]search{!!title}sort[title]] [<currentTiddler>backlinks[]]" emptyValue="no">
+<$reveal type="nomatch" text=<<searched>> default="no">
+
+---
+
+''See Also:''
+
+<<<
+<$list filter=<<searched>> >
+
+</$list>
+<<<
+</$reveal>
+</$set>
+</$set>

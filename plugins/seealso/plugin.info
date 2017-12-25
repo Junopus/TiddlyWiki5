@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/Junopus/seealso",
+	"description": "\"See Also\"",
+	"author": "Junopus",
+	"version": "0.0.6",
+	"core-version": ">=5.0.8",
+	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/seealso",
+	"plugin-type": "plugin",
+	"list": "readme"
+}
