@@ -1,0 +1,34 @@
+[
+  {
+    "title": "$:/config/ShortcutInfo/quiz",
+    "modifier": "Junopus",
+    "text": "Create simple quizzes"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/quiz/Caption",
+    "modifier": "Junopus",
+    "text": "Create a quiz"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/quiz/Hint",
+    "modifier": "Junopus",
+    "text": "Create a quiz"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/quiz/editortoolbar",
+    "modifier": "Junopus",
+    "tags": "$:/tags/EditorToolbar",
+    "icon": "$:/plugins/Junopus/utils/quiz/icon",
+    "caption": "{{$:/plugins/Junopus/utils/quiz/Caption}}",
+    "description": "{{$:/plugins/Junopus/utils/quiz/Hint}}",
+    "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]",
+    "list-after": "$:/plugins/Junopus/utils/linkify/editortoolbar",
+    "shortcuts": "((quiz))",
+    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-selection' prefix='<<quiz \"' suffix='\">>' />"
+  },
+  {
+    "title": "$:/plugins/Junopus/utils/quiz/icon",
+    "modifier": "Junopus",
+    "text": "{{$:/core/images/fold-button}}"
+  }
+]

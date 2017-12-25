@@ -1,0 +1,28 @@
+title: $:/plugins/Junopus/utils/quiz/stylesheet
+modifier: Junopus
+tags: $:/tags/Stylesheet
+
+details.disclosure_quiz {
+  display: inline;
+}
+
+details.disclosure_quiz[open] {
+  display: inline;
+  background-color: #00ff7f;
+  border-radius: 999px;
+  padding: 0;
+}
+
+details.disclosure_quiz>summary {
+  display: inline;
+  background-color: #ffd700;
+  border-radius: 999px;
+  margin: 0; padding-left: 6px; padding-right: 8px;
+  cursor: pointer;
+}
+
+details.disclosure_quiz[open]>summary { display: none; }
+
+summary::before { content: "❓️ " }
+
+summary::-webkit-details-marker { display: none; }
