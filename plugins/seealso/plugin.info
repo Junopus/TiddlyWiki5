@@ -1,6 +1,6 @@
 {
 	"title": "$:/plugins/Junopus/seealso",
-	"description": "SeeAlso",
+	"description": "See Also",
 	"author": "Junopus",
 	"version": "0.0.6",
 	"core-version": ">=5.0.8",
