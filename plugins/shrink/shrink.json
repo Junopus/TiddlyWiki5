@@ -1,0 +1,24 @@
+[
+  {
+    "title": "$:/plugins/Junopus/shrink/Caption",
+    "modifier": "Junopus",
+    "text": "Shrink image"
+  },
+  {
+    "title": "$:/plugins/Junopus/shrink/Hint",
+    "modifier": "Junopus",
+    "text": "Shrink image"
+  },
+  {
+    "title": "$:/plugins/Junopus/shrink/editortoolbar",
+    "modifier": "Junopus",
+    "tags": "$:/tags/EditorToolbar",
+    "icon": "$:/plugins/Junopus/shrink/icon",
+    "caption": "{{$:/plugins/Junopus/shrink/Caption}}",
+    "description": "{{$:/plugins/Junopus/shrink/Hint}}",
+    "condition": "[<targetTiddler>is[image]]",
+    "list-after": "$:/core/ui/EditorToolbar/size",
+    "dropdown": "$:/plugins/Junopus/shrink/dropdown",
+    "text": ""
+  }
+]

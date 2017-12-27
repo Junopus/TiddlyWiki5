@@ -1,0 +1,64 @@
+title: $:/plugins/Junopus/shrink/dropdown
+modifier: Junopus
+
+\define lingo-base() $:/language/Buttons/Size/
+
+\define toolbar-button-resize-preset(config-title)
+<$set name="width" filter="$(sizeWidth)$">
+
+<$button tag="a">
+
+<$action-setfield
+	$tiddler="""$config-title$/new-width"""
+	$value=<<width>>
+/>
+
+<$action-deletetiddler
+	$tiddler="""$config-title$/presets-popup"""
+/>
+
+<$text text=<<width>>/>
+
+</$button>
+
+</$set>
+\end
+
+\define toolbar-button-resize(config-title)
+''{{$:/plugins/Junopus/shrink/Hint}} (original width: <<tv-bitmap-editor-width>>, height: <<tv-bitmap-editor-height>>)''
+
+<<lingo Caption/Width>> <$edit-text tag="input" tiddler="""$config-title$/new-width""" default=<<tv-bitmap-editor-width>> focus="true" size="8"/> <$button popup="""$config-title$/presets-popup""" class="tc-btn-invisible tc-popup-keep" style="width: auto; display: inline-block; background-colour: inherit;" selectedClass="tc-selected">
+{{$:/core/images/down-arrow}}
+</$button>
+
+<$reveal tag="span" state="""$config-title$/presets-popup""" type="popup" position="belowleft" animate="yes">
+
+<div class="tc-drop-down tc-popup-keep">
+
+<$list filter={{$:/plugins/Junopus/shrink/size-preset}} variable="sizeWidth">
+
+<$macrocall $name="toolbar-button-resize-preset" config-title="$config-title$"/>
+
+</$list>
+
+</div>
+
+</$reveal>
+
+<$button>
+<$action-sendmessage
+	$message="tm-edit-bitmap-operation"
+	$param="shrink"
+	width={{$config-title$/new-width}}
+/>
+<$action-deletetiddler
+	$tiddler="""$config-title$/new-width"""
+/>
+<$action-deletetiddler
+	$tiddler=<<dropdown-state>>
+/>
+<<lingo Caption/Resize>>
+</$button>
+\end
+
+<$macrocall $name="toolbar-button-resize" config-title=<<qualify "$:/state/Resize/">>/>
