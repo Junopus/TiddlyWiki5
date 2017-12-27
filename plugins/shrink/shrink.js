@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Junopus/resize-image/resize-image.js
+title: $:/plugins/Junopus/shrink/shrink.js
 type: application/javascript
 module-type: bitmapeditoroperation
 
@@ -12,7 +12,7 @@ Bitmap editor operation to resize the image
 /*global $tw: false */
 "use strict";
 
-exports["resize-image"] = function(event) {
+exports["shrink"] = function(event) {
     // Get the new size
     var newWidth = parseInt(event.paramObject.width || this.canvasDomNode.width,10);
     // Update if necessary

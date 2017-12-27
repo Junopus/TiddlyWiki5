@@ -1,4 +1,4 @@
-title: $:/plugins/Junopus/resize-image/size-preset
+title: $:/plugins/Junopus/shrink/size-preset
 modifier: Junopus
 
 [[32px]] [[48px]] [[64px]] [[128px]] [[256px]] [[320px]] [[400px]] [[640px]] [[770px]] [[860px]] [[1080px]] [[1200px]]
