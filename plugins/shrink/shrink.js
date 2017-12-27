@@ -14,7 +14,13 @@ Bitmap editor operation to resize the image
 
 exports["shrink"] = function(event) {
     // Get the new size
-    var newWidth = parseInt(event.paramObject.width || this.canvasDomNode.width,10);
+    var newWidth = 0;
+    if(event.paramObject.width) {
+      // Remove units "px" and eval calculation if included.
+      newWidth = parseInt(eval(event.paramObject.width.replace("px", "")), 10)
+    } else {
+      newWidth = parseInt(this.canvasDomNode.width, 10);
+    }
     // Update if necessary
     if((newWidth > 0) && (newWidth < this.currCanvas.width)) {
         // Calc new size
