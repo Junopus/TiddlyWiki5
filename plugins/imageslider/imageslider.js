@@ -29,18 +29,18 @@ exports.params = [
 Run the macro
 */
 exports.run = function(title, dim, pages) {
-    var html = "";
+    let html = "";
     if($tw.wiki.tiddlerExists(title)) {
-        var tiddler = $tw.wiki.getTiddler(title);
-        var datauri = $tw.utils.makeDataUri(tiddler.fields.text, tiddler.fields.type);
-        var originaldim = tiddler.fields.slider_dimension.split("x");
-        var width = parseInt(originaldim[0], 10);
-        var height = parseInt(originaldim[1], 10);
-        var ratio = height / width;
-        var fullpagenum = parseInt(originaldim[2], 10);
-        var pagenum = fullpagenum;
-        var pagestart = 1;
-        var pageend = fullpagenum;
+        const tiddler = $tw.wiki.getTiddler(title);
+        const datauri = $tw.utils.makeDataUri(tiddler.fields.text, tiddler.fields.type);
+        const originaldim = tiddler.fields.slider_dimension.split("x");
+        const width = parseInt(originaldim[0], 10);
+        const height = parseInt(originaldim[1], 10);
+        const ratio = height / width;
+        const fullpagenum = parseInt(originaldim[2], 10);
+        const pagenum = fullpagenum;
+        const pagestart = 1;
+        const pageend = fullpagenum;
         if(dim) {
             width = parseInt(dim.split("x")[0], 10);
             if(dim.split("x")[1]) {
@@ -54,7 +54,7 @@ exports.run = function(title, dim, pages) {
             pageend = parseInt(pages.split("-")[1], 10);
             pagenum = pageend - pagestart + 1;
         }
-        var id = Date.now();
+        const id = Date.now();
         html += "<style>";
         html += ".ctl" + id + " {";
         html += "width: 100%; height: 100%; padding: 0; margin: 0; ";
@@ -68,7 +68,7 @@ exports.run = function(title, dim, pages) {
         html += "background-size: " + fullpagenum*100 + "% 100%; ";
         html += "z-index: 1;";
         html += "}";
-        for(var i = 0, p = pagestart; p <= pageend; i++, p++) {
+        for(let i = 0, p = pagestart; p <= pageend; i++, p++) {
             html += ".ctl"+id + ":nth-of-type(" + (i + 1) + "):hover ~ .sprite"+id + " {";
             html += "background-position: calc(-" + (p-1) + "*100%) 0;}";
         }
@@ -77,7 +77,7 @@ exports.run = function(title, dim, pages) {
         html += 'width: ' + width + 'px; height: ' + height + 'px;';
         html += 'display: grid; grid-column-gap: 0; ';
         html += 'grid-template-columns: repeat(' + pagenum + ', ' + 100/pagenum + '%);">';
-        for(var p = pagestart; p <= pageend; p++) {
+        for(let p = pagestart; p <= pageend; p++) {
             html += '<div class="ctl'+id + '"></div>';
         }
         html += '<div class="sprite'+id + '"></div>';
