@@ -14,7 +14,7 @@ Bitmap editor operation to resize the image
 
 exports["shrink"] = function(event) {
     // Get the new size
-    var newWidth = 0;
+    let newWidth = 0;
     if(event.paramObject.width) {
       // Remove units "px" and eval calculation if included.
       newWidth = parseInt(eval(event.paramObject.width.replace("px", "")), 10)
@@ -24,12 +24,12 @@ exports["shrink"] = function(event) {
     // Update if necessary
     if((newWidth > 0) && (newWidth < this.currCanvas.width)) {
         // Calc new size
-        var newHeight = Math.floor(this.currCanvas.height * newWidth / this.currCanvas.width);
+        const newHeight = Math.floor(this.currCanvas.height * newWidth / this.currCanvas.width);
         // Create and size a new canvas
-        var newCanvas = this.document.createElement("canvas");
+        const newCanvas = this.document.createElement("canvas");
         this.initCanvas(newCanvas, newWidth, newHeight);
         // Copy the old image
-        var ctx = newCanvas.getContext("2d");
+        let ctx = newCanvas.getContext("2d");
         ctx.drawImage(this.currCanvas, 0, 0, newWidth, newHeight);
         // Set the new canvas as the current one
         this.currCanvas = newCanvas;
