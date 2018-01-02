@@ -26,10 +26,10 @@ exports.params = [
 Run the macro
 */
 exports.run = function(string) {
-    var strs = string.split("|");
-    var splitted = [strs.shift()];
+    let strs = string.split("|");
+    let splitted = [strs.shift()];
     while(strs.length) {
-        var top = splitted.pop();
+        const top = splitted.pop();
         if(/\[.*\[/.test(top)) {
             splitted.push(top + "|" + strs.shift());
             if(strs.length) {
@@ -40,16 +40,16 @@ exports.run = function(string) {
             splitted.push(strs.shift());
         }
     }
-    var quiz = "";
-    var empty = '? ? ?';
-    var pre = '<details class="disclosure_quiz"><summary>';
-    var mid = '</summary>';
-    var post = '</details>';
+    let quiz = "";
+    const empty = '? ? ?';
+    const pre = '<details class="disclosure_quiz"><summary>';
+    const mid = '</summary>';
+    const post = '</details>';
     if(splitted.length == 1) {
         quiz = pre + empty + mid + '&ensp;' + splitted[0] + '&ensp;' + post;
     } else {
-        var left = '';
-        var right = '';
+        let left = '';
+        let right = '';
         while(splitted.length > 1) {
             left += pre + (splitted.shift() || empty) + mid;
             right += post;
