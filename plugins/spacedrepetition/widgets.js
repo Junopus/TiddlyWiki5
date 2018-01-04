@@ -34,7 +34,7 @@ SetSRSFieldWidget.prototype.execute = function() {
 
     const reset = this.getAttribute("$reset") === "yes" ? true : false;
     const srs = lib.getSRSAttrs(this.actionTiddler);
-    console.log(srs);
+    /*console.log(srs);*/
     const field = lib.getSRSFieldName();
     const rating = parseFloat(this.getAttribute("$rating"));
     const rating_index = config.rating_score.split(" ").indexOf(this.getAttribute("$rating"))
@@ -42,21 +42,21 @@ SetSRSFieldWidget.prototype.execute = function() {
     const interval_min = parseInt(config.min.split(" ")[rating_index], 10);
     const interval_max = parseInt(config.max.split(" ")[rating_index], 10);
     const now = Date.now();
-    console.log("limit: "+good_limit+"index: "+rating_index+" min: "+interval_min+" max: "+interval_max+" now: "+now);
+    /*console.log("limit: "+good_limit+"index: "+rating_index+" min: "+interval_min+" max: "+interval_max+" now: "+now);*/
     let value = "";
     if(!reset && srs) {
         const overdue = (now - srs.lastreview) / srs.interval;
         /* If correct, overdue will add a bonus up to 2 */
         const weight_overdue = rating < good_limit ? 1.0 : Math.min(2.0, overdue);
-        console.log("overdue rate: "+overdue+" overdue weight [1-2]: " + weight_overdue);
+        /*console.log("overdue rate: "+overdue+" overdue weight [1-2]: " + weight_overdue);*/
         const difficulty = Math.min(Math.max(srs.difficulty + weight_overdue * (8.0 - 9.0 * rating) / 17.0, 0.0), 1.0);
         const weight_difficulty = 3.0 - 1.7 * difficulty;
-        console.log("difficulty: "+difficulty+" difficulty weight [1.3-3]: " + weight_difficulty);
+        /*console.log("difficulty: "+difficulty+" difficulty weight [1.3-3]: " + weight_difficulty);*/
         const weight_interval = rating < good_limit ?
             (1.0 / (4.3 - weight_difficulty) / (4.3 - weight_difficulty)) :
             (1.0 + (weight_difficulty - 1.0) * weight_overdue);
         const interval = Math.min(Math.max(Math.floor(srs.interval * weight_interval), interval_min), interval_max);
-        console.log("interval weight: " + weight_interval+" interval: "+interval);
+        /*console.log("interval weight: " + weight_interval+" interval: "+interval);*/
         value = "" + interval + " " + difficulty + " " + now;
     } else {
         value = "" + interval_min + " 0.3 " + now;
