@@ -3,7 +3,8 @@ modifier: Junopus
 limit: 10
 fieldprefix: srs_
 queryprefix: srsuser=
-score_icon: 😵 😥 🤔 😉 😆 😎
-score: 0.0 0.2 0.4 0.6 0.8 1.0
+rating_icon: 😵 😥 🤔 😉 😆 😎
+rating_score: 0.0 0.2 0.4 0.6 0.8 1.0
+rating_good_limit: 0.5
 min: 28800000 28800000 28800000 72000000 72000000 72000000
 max: 518400000 1036800000 5184000000 15552000000 31104000000 62208000000
