@@ -45,7 +45,7 @@ exports.getSRSAttrs = function(title) {
             if(attrs.length === 3) {
                 result = {
                     interval:   parseInt(attrs[0], 10),
-                    difficulty: parseInt(attrs[1], 10),
+                    difficulty: parseFloat(attrs[1]),
                     lastreview: parseInt(attrs[2], 10)
                 };
                 result["nextreview"] = result.lastreview + result.interval;
