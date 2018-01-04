@@ -18,7 +18,7 @@ const config = $tw.wiki.getTiddler("$:/plugins/Junopus/spacedrepetition/config")
 Export the library
 */
 exports.getSRSUserName = function() {
-    const regexp = new RegExp(config.queryprefix + '(.+?)(&|\/|$)');
+    const regexp = new RegExp(config.prefix_query + '(.+?)(&|\/|$)');
     const match = $tw.wiki.getTiddlerText("$:/info/url/search").match(regexp);
     let username = "";
     if(match) {
@@ -31,7 +31,7 @@ exports.getSRSUserName = function() {
 
 exports.getSRSFieldName = function() {
     const username = exports.getSRSUserName();
-    return config.fieldprefix + username;
+    return config.prefix_field + username;
 };
 
 exports.getSRSAttrs = function(title) {
