@@ -17,7 +17,7 @@ const lib = require("$:/plugins/Junopus/memoria/library.js");
 /*
 Export our filter function
 */
-exports.srs = function(source,prefix,options) {
+exports.memoria = function(source,prefix,options) {
     const fieldName = lib.getMemoriaFieldName();
 
     let results = [];

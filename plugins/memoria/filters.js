@@ -18,33 +18,36 @@ const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 /*
 Export our filter function
 */
-exports.srsdue = function(source,operator,options) {
+exports.memoriadue = function(source,operator,options) {
     let results = [];
+    const limit = operator.operand ? parseInt(operator.operand, 10) : parseInt(config.limit, 10);
+    console.log(operator.operand);
+    console.log(config.limit);
+    console.log(limit);
     const now = Date.now();
     source(function(tiddler,title) {
         const attrs = lib.getMemoriaAttrs(title);
         if(tiddler && attrs) {
-            if(operator.operand) {
-                /* filter[--operand--] */
-            } else {
-                if(now > attrs.nextreview) {
-                    results.push({
-                        title: title,
-                        overdue: (now - attrs.lastreview) / attrs.interval
-                    });
-                }
+            if(now > attrs.nextreview) {
+                results.push({
+                    title: title,
+                    overdue: (now - attrs.lastreview) / attrs.interval
+                });
             }
         }
     });
+    let final = [];
+    console.log(results);
     if(results) {
         results.sort(function(a, b) {
             return b.overdue - a.overdue;
         });
-        results = results.slice(0, config.limit).map(function(val, i, arr) {
+        final = results.slice(0, limit).map(function(val, i, arr) {
             return val.title;
         });
     }
-    return results;
+    console.log(final);
+    return final;
 };
 
 })();

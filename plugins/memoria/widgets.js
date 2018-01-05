@@ -102,8 +102,8 @@ SetMemoriaNotificationWidget.prototype.execute = function() {
 /*
 Export widgets.
 */
-exports["action-srs"] = SetMemoriaFieldWidget;
-exports["action-srs-delete"] = DeleteMemoriaFieldWidget;
-exports["action-setsrsnotify"] = SetMemoriaNotificationWidget;
+exports["action-memoria"] = SetMemoriaFieldWidget;
+exports["action-memoria-delete"] = DeleteMemoriaFieldWidget;
+exports["action-setmemorianotify"] = SetMemoriaNotificationWidget;
 
 })();

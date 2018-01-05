@@ -1,6 +1,6 @@
 {
 	"title": "$:/plugins/Junopus/memoria",
-	"description": "Spaced Repetition System",
+	"description": "Memoria",
 	"author": "Junopus",
 	"version": "0.0.34",
 	"core-version": ">=5.0.8",
