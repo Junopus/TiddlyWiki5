@@ -1,8 +1,8 @@
 title: $:/plugins/Junopus/memoria/config
 modifier: Junopus
 limit: 10
-prefix_field: srs_
-prefix_query: srsuser=
+prefix_field: memoria_
+prefix_query: memoria-user=
 rating_icon: 😵 😥 🤔 😉 😆 😎
 rating_score: 0.0 0.2 0.4 0.6 0.8 1.0
 rating_good_limit: 0.5
