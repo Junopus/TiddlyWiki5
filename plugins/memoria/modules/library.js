@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Junopus/memoria/library.js
+title: $:/plugins/Junopus/memoria/modules/library.js
 type: application/javascript
 module-type: library
 

@@ -12,7 +12,7 @@ Action widget to set/reset/delete a spaced repetition field on a tiddler.
 /*global $tw: false */
 "use strict";
 
-const lib = require("$:/plugins/Junopus/memoria/library.js");
+const lib = require("$:/plugins/Junopus/memoria/modules/library.js");
 const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 
 /*

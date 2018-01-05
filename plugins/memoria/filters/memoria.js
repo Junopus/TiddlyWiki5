@@ -12,7 +12,7 @@ Filter operator for checking if the tiddler is "spaced repetition"ed.
 /*global $tw: false */
 "use strict";
 
-const lib = require("$:/plugins/Junopus/memoria/library.js");
+const lib = require("$:/plugins/Junopus/memoria/modules/library.js");
 const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 
 /*
