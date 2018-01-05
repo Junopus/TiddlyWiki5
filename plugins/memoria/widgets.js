@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Junopus/spacedrepetition/widgets.js
+title: $:/plugins/Junopus/memoria/widgets.js
 type: application/javascript
 module-type: widget
 
@@ -12,8 +12,8 @@ Action widget to set/reset/delete a spaced repetition field on a tiddler.
 /*global $tw: false */
 "use strict";
 
-const lib = require("$:/plugins/Junopus/spacedrepetition/library.js");
-const config = $tw.wiki.getTiddler("$:/plugins/Junopus/spacedrepetition/config").fields;
+const lib = require("$:/plugins/Junopus/memoria/library.js");
+const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 
 /*
 Set the spaced repetition data. Based on "SM2+" algorithm.
@@ -21,21 +21,21 @@ http://www.blueraja.com/blog/477/a-better-spaced-repetition-learning-algorithm-s
 */
 const SetFieldWidget = require("$:/core/modules/widgets/action-setfield.js")["action-setfield"];
 
-let SetSRSFieldWidget = function(parseTreeNode,options) {
+let SetMemoriaFieldWidget = function(parseTreeNode,options) {
 	this.initialise(parseTreeNode,options);
 };
 
-SetSRSFieldWidget.prototype = new SetFieldWidget();
+SetMemoriaFieldWidget.prototype = new SetFieldWidget();
 
-SetSRSFieldWidget.prototype.execute = function() {
+SetMemoriaFieldWidget.prototype.execute = function() {
     this.actionTiddler = this.getAttribute("$tiddler",this.getVariable("currentTiddler"));
     this.actionIndex = this.getAttribute("$index");
     this.actionTimestamp = this.getAttribute("$timestamp","yes") === "yes";
 
     const reset = this.getAttribute("$reset") === "yes" ? true : false;
-    const srs = lib.getSRSAttrs(this.actionTiddler);
+    const srs = lib.getMemoriaAttrs(this.actionTiddler);
     /*console.log(srs);*/
-    const field = lib.getSRSFieldName();
+    const field = lib.getMemoriaFieldName();
     const rating = parseFloat(this.getAttribute("$rating"));
     const rating_index = config.rating_score.split(" ").indexOf(this.getAttribute("$rating"))
     const good_limit = parseFloat(config.rating_good_limit);
@@ -67,25 +67,43 @@ SetSRSFieldWidget.prototype.execute = function() {
 };
 
 /*
-
+Delete Memoria field.
 */
 const DeleteFieldWidget = require("$:/core/modules/widgets/action-deletefield.js")["action-deletefield"];
 
-let DeleteSRSFieldWidget = function(parseTreeNode,options) {
+let DeleteMemoriaFieldWidget = function(parseTreeNode,options) {
 	this.initialise(parseTreeNode,options);
 };
 
-DeleteSRSFieldWidget.prototype = new DeleteFieldWidget();
+DeleteMemoriaFieldWidget.prototype = new DeleteFieldWidget();
 
-DeleteSRSFieldWidget.prototype.execute = function() {
+DeleteMemoriaFieldWidget.prototype.execute = function() {
 	this.actionTiddler = this.getAttribute("$tiddler",this.getVariable("currentTiddler"));
-	this.actionField = lib.getSRSFieldName();
+	this.actionField = lib.getMemoriaFieldName();
 };
 
+
+
+
+let SetMemoriaNotificationWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+
+SetMemoriaNotificationWidget.prototype = new SetFieldWidget();
+
+SetMemoriaNotificationWidget.prototype.execute = function() {
+    this.actionTiddler = "$:/state/MemoriaNotify";
+    this.actionTimestamp = this.getAttribute("$timestamp","yes") === "yes";
+	const titles = $tw.wiki.getTiddlersWithTag("$:/tags/MemoriaNotifyRating");
+	const i = parseInt(Math.random() * titles.length, 10);
+	this.actionValue = titles[i];
+	console.log("titles: "+titles.join(" ")+" i: "+i+" selected: "+this.actionValue);
+};
 /*
 Export widgets.
 */
-exports["action-srs"] = SetSRSFieldWidget;
-exports["action-srs-delete"] = DeleteSRSFieldWidget;
+exports["action-srs"] = SetMemoriaFieldWidget;
+exports["action-srs-delete"] = DeleteMemoriaFieldWidget;
+exports["action-setsrsnotify"] = SetMemoriaNotificationWidget;
 
 })();

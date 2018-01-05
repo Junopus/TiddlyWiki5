@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Junopus/spacedrepetition/filter_is.js
+title: $:/plugins/Junopus/memoria/filter_is.js
 type: application/javascript
 module-type: isfilteroperator
 
@@ -12,13 +12,13 @@ Filter operator for checking if the tiddler is "spaced repetition"ed.
 /*global $tw: false */
 "use strict";
 
-const lib = require("$:/plugins/Junopus/spacedrepetition/library.js");
+const lib = require("$:/plugins/Junopus/memoria/library.js");
 
 /*
 Export our filter function
 */
 exports.srs = function(source,prefix,options) {
-    const fieldName = lib.getSRSFieldName();
+    const fieldName = lib.getMemoriaFieldName();
 
     let results = [];
 

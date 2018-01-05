@@ -1,10 +1,10 @@
 {
-	"title": "$:/plugins/Junopus/spacedrepetition",
+	"title": "$:/plugins/Junopus/memoria",
 	"description": "Spaced Repetition System",
 	"author": "Junopus",
 	"version": "0.0.34",
 	"core-version": ">=5.0.8",
-	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/spacedrepetition",
+	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/memoria",
 	"plugin-type": "plugin",
 	"list": "readme usage"
 }
