@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Junopus/memoria/filter_is.js
+title: $:/plugins/Junopus/memoria/filters/is/memoria.js
 type: application/javascript
 module-type: isfilteroperator
 

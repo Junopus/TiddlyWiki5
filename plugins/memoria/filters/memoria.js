@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Junopus/memoria/filters.js
+title: $:/plugins/Junopus/memoria/filters/memoria.js
 type: application/javascript
 module-type: filteroperator
 
@@ -18,12 +18,9 @@ const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 /*
 Export our filter function
 */
-exports.memoriadue = function(source,operator,options) {
+exports.memoria = function(source,operator,options) {
     let results = [];
     const limit = operator.operand ? parseInt(operator.operand, 10) : parseInt(config.limit, 10);
-    console.log(operator.operand);
-    console.log(config.limit);
-    console.log(limit);
     const now = Date.now();
     source(function(tiddler,title) {
         const attrs = lib.getMemoriaAttrs(title);
@@ -37,7 +34,6 @@ exports.memoriadue = function(source,operator,options) {
         }
     });
     let final = [];
-    console.log(results);
     if(results) {
         results.sort(function(a, b) {
             return b.overdue - a.overdue;
@@ -46,7 +42,6 @@ exports.memoriadue = function(source,operator,options) {
             return val.title;
         });
     }
-    console.log(final);
     return final;
 };
 
