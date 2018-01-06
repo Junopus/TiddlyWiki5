@@ -1,0 +1,10 @@
+title: $:/plugins/Junopus/seealso/stylesheet
+modifier: Junopus
+tags: $:/tags/Stylesheet
+
+.tc-scrollable-seealso {
+	border: 1px solid <<colour pre-border>>;
+	background-color: <<colour pre-background>>;
+	height: 110px;
+	position: relative;
+}
