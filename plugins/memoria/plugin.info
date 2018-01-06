@@ -2,7 +2,7 @@
 	"title": "$:/plugins/Junopus/memoria",
 	"description": "Memoria",
 	"author": "Junopus",
-	"version": "0.0.34",
+	"version": "0.1.0",
 	"core-version": ">=5.0.8",
 	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/memoria",
 	"plugin-type": "plugin",
