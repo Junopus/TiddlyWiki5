@@ -1,0 +1,36 @@
+title: $:/plugins/Junopus/memoria/ViewTemplate
+modifier: Junopus
+tags: $:/tags/ViewTemplate
+
+<$list filter="[<currentTiddler>!is[system]]">
+<br>
+<div style="text-align: right; padding: 0 20px;">
+<!--
+ViewTemplate for non-memoria tiddler
+-->
+<$list filter="[<currentTiddler>!has[draft.of]!has:field<memoriafieldname>]">
+<$button class="tc-btn-memoria" actions=<<memoriarate>> >
+{{$:/plugins/Junopus/memoria/config!!icon_start}}
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/start" />
+<$action-navigate $to=<<currentTiddler>> />
+</$button>
+</$list>
+<!--
+ViewTemplate for non-due memoria tiddler
+-->
+<$list filter="[<currentTiddler>!has[draft.of]has:field<memoriafieldname>]">
+<$button class="tc-btn-memoria" style="margin: 0 2em;">
+{{$:/plugins/Junopus/memoria/config!!icon_end}}
+<$action-deletefield $field=<<memoriafieldname>> $timestamp="no" />
+<$action-sendmessage $message="tm-auto-save-wiki" />
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/end" />
+</$button>
+</$list>
+<!--
+ViewTemplate for due memoria tiddler
+-->
+<$list filter="[<currentTiddler>!has[draft.of]memoria[]]">
+<<memoria-buttons>>
+</$list>
+</div>
+</$list>

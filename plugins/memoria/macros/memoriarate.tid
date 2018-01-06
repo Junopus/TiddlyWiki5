@@ -1,0 +1,8 @@
+title: $:/plugins/Junopus/memoria/macros/memoriarate
+modifier: Junopus
+tags: $:/tags/Macro
+
+\define memoriarate(rating)
+<$action-setfield $field=<<memoriafieldname>> $value=<<memorianextattrs $rating$>> $timestamp="no" />
+<$action-sendmessage $message="tm-auto-save-wiki" />
+\end

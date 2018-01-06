@@ -1,0 +1,8 @@
+title: $:/plugins/Junopus/memoria/readme
+modifier: Junopus
+
+This plugin provides spaced repetition based learning system.
+
+''After installation, add a line `[memoria[]]` to [[Default Tiddlers|$:/DefaultTiddlers]] on [[$:/ControlPanel]].''
+
+[[Source code|https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/memoria]]
