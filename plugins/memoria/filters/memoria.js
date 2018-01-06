@@ -19,30 +19,44 @@ const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 Export our filter function
 */
 exports.memoria = function(source,operator,options) {
-    let results = [];
     const limit = operator.operand ? parseInt(operator.operand, 10) : parseInt(config.limit, 10);
+    const fieldName = lib.getMemoriaFieldName();
     const now = Date.now();
-    source(function(tiddler,title) {
-        const attrs = lib.getMemoriaAttrs(title);
-        if(tiddler && attrs) {
-            if(now > attrs.nextreview) {
-                results.push({
-                    title: title,
-                    overdue: (now - attrs.lastreview) / attrs.interval
-                });
+    let results = [];
+    if(operator.prefix === "!") {
+        source(function(tiddler,title) {
+            /* if tiddler has memoria field and not due */
+            if(!tiddler || (tiddler && $tw.utils.hop(tiddler.fields,fieldName))) {
+                const attrs = lib.getMemoriaAttrs(tiddler.fields[fieldName], now);
+                if(!attrs.isdue) {
+                    results.push(title);
+                }
             }
-        }
-    });
-    let final = [];
-    if(results) {
-        results.sort(function(a, b) {
-            return b.overdue - a.overdue;
         });
-        final = results.slice(0, limit).map(function(val, i, arr) {
+    } else {
+        source(function(tiddler,title) {
+            /* if tiddler has memoria field */
+            if(tiddler && $tw.utils.hop(tiddler.fields,fieldName)) {
+                /* if tiddlar has non-empty memoria field */
+                const attrs = lib.getMemoriaAttrs(tiddler.fields[fieldName], now);
+                if(attrs.isdue) {
+                    results.push({
+                        title: title,
+                        overduerate: attrs.overduerate
+                    });
+                }
+            }
+        });
+        /* Sort by overdue rate; new memoria will be top */
+        results.sort(function(a, b) {
+            return b.overduerate - a.overduerate;
+        });
+        /* Limit the number of elements */
+        results = results.slice(0, limit).map(function(val, i, arr) {
             return val.title;
         });
     }
-    return final;
+    return results;
 };
 
 })();

@@ -34,22 +34,24 @@ exports.getMemoriaFieldName = function() {
     return config.prefix_field + username;
 };
 
-exports.getMemoriaAttrs = function(title) {
-    const fieldName = exports.getMemoriaFieldName();
-
-    const tiddler = !!title && $tw.wiki.getTiddler(title);
+exports.getMemoriaAttrs = function(fieldString, timebase) {
     let result = null;
-    if(tiddler) {
-        if(tiddler.fields[fieldName]) {
-            const attrs = tiddler.fields[fieldName].split(" ");
-            if(attrs.length === 3) {
-                result = {
-                    interval:   parseInt(attrs[0], 10),
-                    difficulty: parseFloat(attrs[1]),
-                    lastreview: parseInt(attrs[2], 10)
-                };
-                result["nextreview"] = result.lastreview + result.interval;
-            }
+    const attrs = fieldString.split(" ");
+    if(attrs.length === 3) {
+        result = {
+            interval:   parseInt(attrs[0], 10),
+            difficulty: parseFloat(attrs[1]),
+            lastreview: parseInt(attrs[2], 10)
+        };
+        result.isnew = false;
+        result.nextreview = result.lastreview + result.interval;
+        result.isdue = timebase > result.nextreview;
+        result.overduerate = (timebase - result.lastreview) / result.interval;
+    } else {
+        result = {
+            isnew: true,
+            isdue: true,
+            overduerate: parseInt(fieldString, 10)
         }
     }
     return result;
