@@ -2,9 +2,7 @@ title: $:/plugins/Junopus/memoria/ViewTemplate
 modifier: Junopus
 tags: $:/tags/ViewTemplate
 
-<$set name="searched" filter="[<currentTiddler>!is[system]]" emptyValue="no">
-<$reveal type="nomatch" text=<<searched>> default="no">
-
+<$list filter="[<currentTiddler>!is[system]]">
 <br>
 <div style="text-align: right; padding: 0 20px;">
 <!--
@@ -35,6 +33,4 @@ ViewTemplate for due memoria tiddler
 <<memoria-buttons>>
 </$list>
 </div>
-
-</$reveal>
-</$set>
+</$list>
