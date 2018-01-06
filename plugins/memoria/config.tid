@@ -5,7 +5,7 @@ prefix_field: memoria_
 prefix_query: memoria-user=
 icon_start: 🔔
 icon_end: 🔕
-rating_icon: 😵 😥 🤔 😉 😆 😎
+rating_icon: 😵 😥 🤔 😉 😊 😎
 rating_score: 0.0 0.2 0.4 0.6 0.8 1.0
 rating_good_limit: 0.5
 min: 28800000 28800000 28800000 72000000 72000000 72000000
