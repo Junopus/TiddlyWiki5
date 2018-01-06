@@ -46,10 +46,10 @@ exports.run = function(rating, title) {
             const good_limit = parseFloat(config.rating_good_limit);
             const interval_min = parseInt(config.min.split(" ")[rating_index], 10);
             const interval_max = parseInt(config.max.split(" ")[rating_index], 10);
-            console.log("limit: "+good_limit+"index: "+rating_index+" min: "+interval_min+" max: "+interval_max+" now: "+now);
-            console.log(attrs);
+            /*console.log("limit: "+good_limit+"index: "+rating_index+" min: "+interval_min+" max: "+interval_max+" now: "+now);*/
+            /*console.log(attrs);*/
             if(attrs.isnew) {
-                result = "" + interval_min + " 0.3 " + now;
+                result = "" + interval_min + " " + lib.difficultyFromRating(rating_score) + " " + now;
             } else {
                 /* If correct, overdue will add a bonus up to 2 */
                 const weight_overdue = rating_score < good_limit ? 1.0 : Math.min(2.0, attrs.overduerate);
@@ -66,6 +66,7 @@ exports.run = function(rating, title) {
             }
         }
     }
+    console.log(result);
     return result;
 };
 

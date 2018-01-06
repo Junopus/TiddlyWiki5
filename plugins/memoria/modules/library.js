@@ -57,4 +57,8 @@ exports.getMemoriaAttrs = function(fieldString, timebase) {
     return result;
 };
 
+exports.difficultyFromRating = function(rating) {
+    return 1.0 - rating;
+}
+
 })();
