@@ -36,17 +36,18 @@ exports.run = function(rating, title) {
     const now = Date.now();
     let result = "";
     if(tiddler) {
-        if(!$tw.utils.hop(tiddler.fields,lib.getMemoriaFieldName())) {
+        const fieldName = lib.getMemoriaFieldName();
+        if(!$tw.utils.hop(tiddler.fields,fieldName)) {
             result = "" + now;
         } else {
-            const attrs = lib.getMemoriaAttrs(title, now);
-            /*console.log(attrs);*/
+            const attrs = lib.getMemoriaAttrs(tiddler.fields[fieldName], now);
             const rating_score = parseFloat(rating);
             const rating_index = config.rating_score.split(" ").indexOf(rating);
             const good_limit = parseFloat(config.rating_good_limit);
             const interval_min = parseInt(config.min.split(" ")[rating_index], 10);
             const interval_max = parseInt(config.max.split(" ")[rating_index], 10);
-            /*console.log("limit: "+good_limit+"index: "+rating_index+" min: "+interval_min+" max: "+interval_max+" now: "+now);*/
+            console.log("limit: "+good_limit+"index: "+rating_index+" min: "+interval_min+" max: "+interval_max+" now: "+now);
+            console.log(attrs);
             if(attrs.isnew) {
                 result = "" + interval_min + " 0.3 " + now;
             } else {
