@@ -32,10 +32,8 @@ exports.run = function() {
     const rating_scores = config.rating_score.split(" ");
     const rating_icons = config.rating_icon.split(" ");
     for(let i = 0; i < rating_icons.length; i++) {
-        text += '<$button class="tc-btn-memoria">';
+        text += '<$button class="tc-btn-memoria" actions=<<memoriarate "' + rating_scores[i] + '">> >';
         text += rating_icons[i];
-        text += '<$action-setfield $field=<<memoriafieldname>> $value=<<memorianextattrs ' + rating_scores[i] + '>> $timestamp="no" />';
-        text += '<$action-sendmessage $message="tm-auto-save-wiki" />';
         text += '<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/memoria" />';
         text += '<$action-sendmessage $message="tm-close-tiddler" />';
         text += '</$button>';
