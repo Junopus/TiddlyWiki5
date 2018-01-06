@@ -1,6 +1,12 @@
 title: $:/plugins/Junopus/memoria/usage
 modifier: Junopus
 
-# Choose your feeling at the bottom of tiddlers.
-#
-# Add `[memoria[]]` to Default Tiddlers in $:/ControlPanel.
+# Click {{$:/plugins/Junopus/memoria/config!!icon_start}} to start memorizing a tiddler.
+# Re-read that tiddler and choose your feeling from {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
+# When you refresh TiddlyWiki, the "Due" tiddlers will be displayed.
+# Read them and evaluate your memory {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
+
+* Just concentrate on reading the "Due" tiddlers. The learning interval is automatically calculated.
+* The number of "Due" tiddlers is limited up to 10.
+** Reload page if you want to do more.
+** This number can be changed on the "setting" tab of Memoria.
