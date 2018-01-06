@@ -1,0 +1,6 @@
+title: $:/plugins/Junopus/memoria/setting
+modifier: Junopus
+
+* Task limit: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="limit" />
+* "Start Memoria" icon: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="icon_start" />
+* "End Memoria" icon: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="icon_end" />

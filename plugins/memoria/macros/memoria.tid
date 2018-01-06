@@ -1,0 +1,42 @@
+title: $:/plugins/Junopus/memoria/ViewTemplate
+modifier: Junopus
+tags: $:/tags/ViewTemplate
+
+<$set name="searched" filter="[!is[system]]" emptyValue="no">
+<$reveal type="nomatch" text=<<searched>> default="no">
+
+<br>
+<div style="text-align: right; padding: 0 20px;">
+<!--
+ViewTemplate for non-memoria tiddler
+-->
+<$list filter="[<currentTiddler>!has[draft.of]!has:field<memoriafieldname>]">
+<$button class="tc-btn-memoria">
+{{$:/plugins/Junopus/memoria/config!!icon_start}}
+<$action-setfield $field=<<memoriafieldname>> $value=<<memorianextattrs>> $timestamp="no" />
+<$action-sendmessage $message="tm-auto-save-wiki" />
+<$action-sendmessage $message="tm-notify" $param="About" />
+<$action-navigate $to=<<currentTiddler>> />
+</$button>
+</$list>
+<!--
+ViewTemplate for non-due memoria tiddler
+-->
+<$list filter="[<currentTiddler>!has[draft.of]!memoria[]]">
+<$button class="tc-btn-memoria">
+{{$:/plugins/Junopus/memoria/config!!icon_end}}
+<$action-deletefield $field=<<memoriafieldname>> $timestamp="no" />
+<$action-sendmessage $message="tm-auto-save-wiki" />
+<$action-sendmessage $message="tm-notify" $param="About" />
+</$button>
+</$list>
+<!--
+ViewTemplate for due memoria tiddler
+-->
+<$list filter="[<currentTiddler>!has[draft.of]memoria[]]">
+<<memoria-buttons>>
+</$list>
+</div>
+
+</$reveal>
+</$set>

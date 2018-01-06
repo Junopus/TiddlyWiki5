@@ -1,0 +1,12 @@
+title: $:/plugins/Junopus/memoria/stylesheet
+modifier: Junopus
+tags: $:/tags/Stylesheet
+
+.tc-btn-memoria {
+    font-size: 2.0em;
+    padding: 0;
+    margin: 0 0.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
