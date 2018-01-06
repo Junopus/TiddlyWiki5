@@ -15,7 +15,7 @@ ViewTemplate for non-memoria tiddler
 {{$:/plugins/Junopus/memoria/config!!icon_start}}
 <$action-setfield $field=<<memoriafieldname>> $value=<<memorianextattrs>> $timestamp="no" />
 <$action-sendmessage $message="tm-auto-save-wiki" />
-<$action-sendmessage $message="tm-notify" $param="About" />
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/start" />
 <$action-navigate $to=<<currentTiddler>> />
 </$button>
 </$list>
@@ -27,7 +27,7 @@ ViewTemplate for non-due memoria tiddler
 {{$:/plugins/Junopus/memoria/config!!icon_end}}
 <$action-deletefield $field=<<memoriafieldname>> $timestamp="no" />
 <$action-sendmessage $message="tm-auto-save-wiki" />
-<$action-sendmessage $message="tm-notify" $param="About" />
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/end" />
 </$button>
 </$list>
 <!--

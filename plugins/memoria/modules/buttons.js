@@ -36,7 +36,7 @@ exports.run = function() {
         text += rating_icons[i];
         text += '<$action-setfield $field=<<memoriafieldname>> $value=<<memorianextattrs ' + rating_scores[i] + '>> $timestamp="no" />';
         text += '<$action-sendmessage $message="tm-auto-save-wiki" />';
-        text += '<$action-sendmessage $message="tm-notify" $param="About" />';
+        text += '<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/memoria" />';
         text += '<$action-sendmessage $message="tm-close-tiddler" />';
         text += '</$button>';
     }
