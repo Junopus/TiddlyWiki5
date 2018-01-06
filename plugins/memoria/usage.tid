@@ -1,11 +1,26 @@
 title: $:/plugins/Junopus/memoria/usage
 modifier: Junopus
 
+!! Basic Usage
 # Click {{$:/plugins/Junopus/memoria/config!!icon_start}} to start memorizing a tiddler.
-# Re-read that tiddler and choose your feeling from {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
+# Read again that tiddler and choose your feeling from {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
 # When you refresh TiddlyWiki, the "Due" tiddlers will be displayed.
 # Read them and evaluate your memory {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
+* To stop learning, click {{$:/plugins/Junopus/memoria/config!!icon_end}}
 
+!! Notification
+You can set notifications that motivate you to keep learning.
+
+# Make notification tiddlers as you want.
+# Add Memoria tags.
+#* <<tag $:/tags/Memoria>>: Notify when you click {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
+#* <<tag $:/tags/MemoriaStart>>: Notify when you click {{$:/plugins/Junopus/memoria/config!!icon_start}}.
+#* <<tag $:/tags/MemoriaEnd>>: Notify when you click {{$:/plugins/Junopus/memoria/config!!icon_end}}.
+* I recommend you to put your favorite images on notification tiddlers.
+* You can add Memoria tag on multiple tiddlers. Notification tiddler will be randomly selected.
+
+
+!! Note
 * Just concentrate on reading the "Due" tiddlers. The learning interval is automatically calculated.
 * The number of "Due" tiddlers is limited up to 10.
 ** Reload page if you want to do more.
