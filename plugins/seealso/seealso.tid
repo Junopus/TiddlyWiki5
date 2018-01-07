@@ -4,6 +4,10 @@ tags: $:/tags/ViewTemplate
 
 <$list filter="[<currentTiddler>!is[system]]">
 
+<$set name="filter" value="[!is[system]!is[current]!is[image]search{!!title}sort[title]] [<currentTiddler>backlinks[]]">
+<$set name="searched" filter=<<filter>> emptyValue="no">
+<$reveal type="nomatch" text=<<searched>> default="no">
+
 !!See Also
 <$scrollable class="tc-scrollable-seealso">
 <ul>
@@ -18,4 +22,9 @@ tags: $:/tags/ViewTemplate
 </$list>
 </ul>
 </$scrollable>
+
+</$reveal>
+</$set>
+</$set>
+
 </$list>

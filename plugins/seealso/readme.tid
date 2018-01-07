@@ -3,6 +3,5 @@ modifier: Junopus
 
 This plugin provides "See Also" section at the bottom of tiddlers.
 
-''After installation, add `[memoria[]]` to "Default Tiddlers" in $:/ControlPanel to enable Memoria.''
 
 [[Source code|https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/seealso]]
