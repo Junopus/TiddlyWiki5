@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/Junopus/fieldimage",
+	"description": "Field Image",
+	"author": "Junopus",
+	"version": "0.0.1",
+	"core-version": ">=5.0.8",
+	"source": "https://github.com/Junopus/TiddlyWiki5/blob/master/plugins/fieldimage",
+	"plugin-type": "plugin",
+	"list": "readme"
+}
