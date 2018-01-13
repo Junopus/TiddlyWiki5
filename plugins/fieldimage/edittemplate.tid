@@ -1,3 +1,7 @@
+title: $:/plugins/Junopus/fieldimage/EditTemplate
+modifier: Junopus
+tags: $:/tags/EditTemplate
+
 \define new-imagefield(newfieldname)
     <$wikify name="imagedatauri" text=<<datauri """$(imageTitle)$""">>>
         <$action-setfield
