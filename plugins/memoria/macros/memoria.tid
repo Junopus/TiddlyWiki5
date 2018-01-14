@@ -5,9 +5,9 @@ tags: $:/tags/ViewTemplate
 <$list filter="[<currentTiddler>!is[system]]">
 <br>
 <div style="text-align: right; padding: 0 20px;">
-<span style="font-size: 1.5em; color: coral;">
+<div style="font-size: 1.5em; color: coral;">
 <span style="font-family: cursive; font-style: italic;">Memoria</span> <span style="font-family: serif;">[<<memoriausername>>]</span>
-</span>
+</div>
 <!--
 ViewTemplate for non-memoria tiddler
 -->
