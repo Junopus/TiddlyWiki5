@@ -8,6 +8,10 @@ modifier: Junopus
 # Read them and evaluate your memory {{$:/plugins/Junopus/memoria/config!!rating_icon}}.
 * To stop learning, click {{$:/plugins/Junopus/memoria/config!!icon_end}}
 
+!! Using on Node.js
+* Add query string `?memoria-user={username}` to enable multi-user mode.
+** (Warning) Conflict could be occur.
+
 !! Notification
 You can set notifications that motivate you to keep learning.
 
@@ -17,7 +21,7 @@ You can set notifications that motivate you to keep learning.
 #* <<tag $:/tags/MemoriaStart>>: Notify when you click {{$:/plugins/Junopus/memoria/config!!icon_start}}.
 #* <<tag $:/tags/MemoriaEnd>>: Notify when you click {{$:/plugins/Junopus/memoria/config!!icon_end}}.
 * I recommend you to put your favorite images on notification tiddlers.
-* You can add Memoria tag on multiple tiddlers. Notification tiddler will be randomly selected.
+* You can add multiple notification tiddlers. Notification tiddler will be randomly selected.
 
 
 !! Note

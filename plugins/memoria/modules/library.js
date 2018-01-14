@@ -24,7 +24,7 @@ exports.getMemoriaUserName = function() {
     if(match) {
         username = decodeURIComponent(match[1]);
     } else {
-        username = "anonymous";
+        username = config.default_user;
     }
     return username;
 };

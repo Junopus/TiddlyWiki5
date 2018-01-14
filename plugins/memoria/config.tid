@@ -3,6 +3,7 @@ modifier: Junopus
 limit: 10
 prefix_field: memoria_
 prefix_query: memoria-user=
+default_user: user
 icon_start: 🔔
 icon_end: 🔕
 rating_icon: 😵 😥 🤔 😉 😊 😎
