@@ -24,7 +24,7 @@ ViewTemplate for non-due memoria tiddler
 <$list filter="[<currentTiddler>!has[draft.of]has:field<memoriafieldname>]">
 <$button class="tc-btn-memoria" style="margin: 0 2em;">
 {{$:/plugins/Junopus/memoria/config!!icon_end}}
-<$action-deletefield $field=<<memoriafieldname>> $timestamp="no" />
+<$action-setfield $field=<<memoriafieldname>> $timestamp="no" />
 <$action-sendmessage $message="tm-auto-save-wiki" />
 <$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/end" />
 </$button>
