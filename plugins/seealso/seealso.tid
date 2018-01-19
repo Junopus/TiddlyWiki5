@@ -11,10 +11,10 @@ tags: $:/tags/ViewTemplate
 !!See Also
 <$scrollable class="tc-scrollable-seealso">
 <ul>
-<$list filter="[!is[system]!is[current]search{!!title}sort[title]][<currentTiddler>backlinks[]]">
+<$list filter=<<filter>>>
 <li>
 <$link to={{!!title}}>
-<$transclude field="caption">
+<$transclude field="title">
 <$view field="title"/>
 </$transclude>
 </$link>
