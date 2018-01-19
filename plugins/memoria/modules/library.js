@@ -19,12 +19,15 @@ Export the library
 */
 exports.getMemoriaUserName = function() {
     const regexp = new RegExp(config.prefix_query + '(.+?)(&|\/|$)');
-    const match = $tw.wiki.getTiddlerText("$:/info/url/search").match(regexp);
+    const query = $tw.wiki.getTiddlerText("$:/info/url/search");
     let username = "";
-    if(match) {
-        username = decodeURIComponent(match[1]);
-    } else {
-        username = config.default_user;
+    if(query) {
+        const match = query.match(regexp);
+        if(match) {
+            username = decodeURIComponent(match[1]);
+        } else {
+            username = config.default_user;
+        }
     }
     return username;
 };
