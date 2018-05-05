@@ -24,7 +24,7 @@
     "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]",
     "list-after": "$:/core/ui/EditorToolbar/mono-line",
     "shortcuts": "((fontcolor-magenta))",
-    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-selection' prefix='@@color:magenta; ' suffix='@@' />"
+    "text": "<$action-sendmessage $message='tm-edit-text-operation' $param='wrap-selection' prefix='@@color:magenta;' suffix='@@' />"
   },
   {
     "title": "$:/plugins/Junopus/utils/fontcolor-magenta/icon",
