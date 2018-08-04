@@ -1,0 +1,25 @@
+title: $:/plugins/Junopus/fieldimage/ImageToField
+modifier: Junopus
+tags: $:/tags/ViewToolbar
+caption: {{$:/core/images/import-button}} {{$:/plugins/Junopus/fieldimage/ImageToField/Caption}}
+description: {{$:/plugins/Junopus/fieldimage/ImageToField/Hint}}
+
+\whitespace trim
+<$button tooltip={{$:/plugins/Junopus/fieldimage/ImageToField/Hint}} aria-label={{$:/plugins/Junopus/fieldimage/ImageToField/Caption}} class=<<tv-config-toolbar-class>>>
+<$list filter="[<currentTiddler>is[image]!has[_canonical_uri]]">
+<$wikify name="imagedatauri" text=<<datauri """$(currentTiddler)$""">>>
+<$action-setfield $tiddler=<<currentTiddler>> $field="img01" $value=<<imagedatauri>> />
+</$wikify>
+<$action-setfield $tiddler=<<currentTiddler>> $field="text" $value="<img src={{!!img01}}>" />
+<$action-setfield $tiddler=<<currentTiddler>> $field="type" $value="text/vnd.tiddlywiki" />
+</$list>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/core/images/import-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text">
+<$text text=" "/>
+<$text text={{$:/plugins/Junopus/fieldimage/ImageToField/Caption}}/>
+</span>
+</$list>
+</$button>

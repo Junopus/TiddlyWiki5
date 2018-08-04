@@ -1,0 +1,12 @@
+[
+  {
+    "title": "$:/plugins/Junopus/fieldimage/ImageToField/Caption",
+    "modifier": "Junopus",
+    "text": "convert into field-image"
+  },
+  {
+    "title": "$:/plugins/Junopus/fieldimage/ImageToField/Hint",
+    "modifier": "Junopus",
+    "text": "Convert this image into field"
+  }
+]
