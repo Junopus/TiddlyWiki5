@@ -17,15 +17,24 @@ tags: $:/tags/EditTemplate
 
 \define fieldimage-picker-thumbnail()
     <$list filter="[<currentTiddler>regexp:$(fieldName)$[^data:image]]">
-        <$button tag="a" tooltip="""$(fieldName)$""" style="cursor: pointer;">
+        <$button tag="a" tooltip="""$(fieldName)$""" style="cursor: pointer;" popup=<<qualify "$:/state/popup/fieldimage-edit-dropdown">> >
             <img src={{!!$(fieldName)$}}>
-            <$reveal state=<<qualify "$:/state/fieldimage-deletemode">> type="match" text="" default="">
+            <$reveal state=<<qualify "$:/state/fieldimage-editmode">> type="match" text="" default="">
                 <$action-sendmessage
                     $message="tm-copy-to-clipboard"
                     $param="<img src={{!!$(fieldName)$}}>"
                 />
             </$reveal>
-            <$reveal state=<<qualify "$:/state/fieldimage-deletemode">> type="nomatch" text="" default="">
+            <$reveal state=<<qualify "$:/state/fieldimage-editmode">> type="match" text="rename" default="">
+                <span class="tc-edit-field-remove">
+                    {{$:/core/images/refresh-button}}
+                </span>
+                <$action-setfield
+                    $tiddler="$:/temp/fieldimage/oldname"
+                    $value=$(fieldName)$
+                />
+            </$reveal>
+            <$reveal state=<<qualify "$:/state/fieldimage-editmode">> type="match" text="delete" default="">
                 <span class="tc-edit-field-remove">
                     {{$:/core/images/delete-button}}
                 </span>
@@ -43,11 +52,31 @@ tags: $:/tags/EditTemplate
             <span style="opacity:0.5;">
                 {{$:/core/images/new-image-button}}
             </span>
+            <$action-deletetiddler $tiddler=<<qualify "$:/state/fieldimage-editmode">> />
         </$button>
         <$list filter="[<currentTiddler>fields[]sort[]] +[remove[text]]" variable="fieldName">
             <<fieldimage-picker-thumbnail>>
         </$list>
-        <$button popup=<<qualify "$:/state/fieldimage-deletemode">> tooltip="Delete field" class="tc-btn-invisible tc-edit-field-remove" style="vertical-align: bottom; cursor: pointer;">
+        <$button tooltip="Rename field" class="tc-btn-invisible tc-edit-field-remove" style="vertical-align: bottom; cursor: pointer;">
+            <$set name="statetiddler" value=<<qualify "$:/state/fieldimage-editmode">> >
+                <$reveal state=<<statetiddler>> type="nomatch" text="rename">
+                    <$action-setfield $tiddler=<<statetiddler>> $value="rename" />
+                </$reveal>
+                <$reveal state=<<statetiddler>> type="match" text="rename">
+                    <$action-deletetiddler $tiddler=<<statetiddler>> />
+                </$reveal>
+            </$set>
+            {{$:/core/images/refresh-button}}
+        </$button>
+        <$button tooltip="Delete field" class="tc-btn-invisible tc-edit-field-remove" style="vertical-align: bottom; cursor: pointer;">
+            <$set name="statetiddler" value=<<qualify "$:/state/fieldimage-editmode">> >
+                <$reveal state=<<statetiddler>> type="nomatch" text="delete">
+                    <$action-setfield $tiddler=<<statetiddler>> $value="delete" />
+                </$reveal>
+                <$reveal state=<<statetiddler>> type="match" text="delete">
+                    <$action-deletetiddler $tiddler=<<statetiddler>> />
+                </$reveal>
+            </$set>
             {{$:/core/images/delete-button}}
         </$button>
     </div>
@@ -64,16 +93,52 @@ tags: $:/tags/EditTemplate
         <$checkbox class="tc-popup-keep" tiddler="$:/state/setfieldimage-deleteoriginal" field="text" checked="yes" unchecked="no" default="yes">
             Delete original image
         </$checkbox>
-        <$reveal state="$:/temp/newfieldimagename" type="nomatch" text="" default="">
-            <$macrocall $name="image-picker" subfilter="!has:field[_canonical_uri]" actions="""
+        <$macrocall $name="image-picker" subfilter="!has:field[_canonical_uri]" actions="""
+            <$reveal state="$:/temp/newfieldimagename" type="nomatch" text="" default="">
                 <$macrocall $name="new-imagefield" newfieldname={{$:/temp/newfieldimagename}}/>
                 <$reveal state="$:/state/setfieldimage-deleteoriginal" type="match" text="yes" default="yes">
                     <$action-deletetiddler
                         $tiddler=<<imageTitle>>
                     />
                 </$reveal>
-            """/>
-        </$reveal>
+            </$reveal>
+        """/>
     </div>
+</$reveal>
+
+<$reveal state=<<qualify "$:/state/fieldimage-editmode">> type="match" text="rename" default="">
+    <$reveal state=<<qualify "$:/state/popup/fieldimage-edit-dropdown">> type="popup">
+        <div class="tc-drop-down tc-popup-keep" style="padding: 10px;">
+            <h3>Rename image</h3>
+            <span style="display: inline-block; width: 50%;">
+                <$edit-text tiddler="$:/temp/fieldimage/newname" size="10" tag="input" focus="true" default="" placeholder={{$:/language/EditTemplate/Fields/Add/Name/Placeholder}} class="tc-edit-texteditor"/>
+            </span>
+            <span style="display: inline-block; width: 10%;">
+            <$set name="oldfieldname" value={{$:/temp/fieldimage/oldname}}>
+            <$set name="newfieldname" value={{$:/temp/fieldimage/newname}}>
+                <$reveal state="$:/temp/fieldimage/newname" type="nomatch" text="" default="">
+                <$list filter="[<currentTiddler>!has:field<newfieldname>]">
+                    <$button class="tc-btn-invisible">
+                        ✅
+                        <$action-setfield
+                            $field=<<newfieldname>>
+                            $value={{{[<currentTiddler>get<oldfieldname>]}}}
+                        />
+                        <$action-sendmessage
+                            $message="tm-copy-to-clipboard"
+                            $param=<<newfieldname>>
+                        />
+                        <$action-deletefield $field=<<oldfieldname>> />
+                        <$action-deletetiddler $tiddler="$:/temp/fieldimage/oldname" />
+                        <$action-deletetiddler $tiddler="$:/temp/fieldimage/newname" />
+                        <$action-deletetiddler $tiddler=<<qualify "$:/state/fieldimage-editmode">> />
+                    </$button>
+                </$list>
+                </$reveal>
+            </$set>
+            </$set>
+            </span>
+        </div>
+    </$reveal>
 </$reveal>
 </$fieldmangler>
