@@ -6,7 +6,7 @@ tags: $:/tags/EditTemplate
     <$wikify name="imagedatauri" text=<<datauri """$(imageTitle)$""">>>
         <$action-sendmessage
             $message="tm-add-field"
-            $name={{$:/temp/newfieldimagename}}
+            $name=$newfieldname$
             $value=<<imagedatauri>>
         />
     </$wikify>
