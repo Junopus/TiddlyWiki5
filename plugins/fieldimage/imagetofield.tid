@@ -12,6 +12,7 @@ description: {{$:/plugins/Junopus/fieldimage/ImageToField/Hint}}
 </$wikify>
 <$action-setfield $tiddler=<<currentTiddler>> $field="text" $value="<img src={{!!img01}}>" />
 <$action-setfield $tiddler=<<currentTiddler>> $field="type" $value="text/vnd.tiddlywiki" />
+<$action-sendmessage $message="tm-edit-tiddler" $param=<<currentTiddler>> />
 </$list>
 <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
 {{$:/core/images/import-button}}
