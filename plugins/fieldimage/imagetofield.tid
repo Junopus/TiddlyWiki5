@@ -6,7 +6,7 @@ description: {{$:/plugins/Junopus/fieldimage/ImageToField/Hint}}
 
 \whitespace trim
 <$button tooltip={{$:/plugins/Junopus/fieldimage/ImageToField/Hint}} aria-label={{$:/plugins/Junopus/fieldimage/ImageToField/Caption}} class=<<tv-config-toolbar-class>>>
-<$list filter="[<currentTiddler>is[image]]">
+<$list filter="[<currentTiddler>is[image]!has[_canonical_uri]]">
 <$wikify name="imagedatauri" text=<<datauri """$(currentTiddler)$""">>>
 <$action-setfield $tiddler=<<currentTiddler>> $field="img01" $value=<<imagedatauri>> />
 </$wikify>
