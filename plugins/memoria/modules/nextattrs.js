@@ -38,7 +38,7 @@ exports.run = function(rating, title) {
     if(tiddler) {
         const fieldName = lib.getMemoriaFieldName();
         if(!$tw.utils.hop(tiddler.fields,fieldName)) {
-            result = "" + now;
+            result = "" + config.initial_interval +" " + rating + " " + now;
         } else {
             const attrs = lib.getMemoriaAttrs(tiddler.fields[fieldName], now);
             const rating_score = parseFloat(rating);

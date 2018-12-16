@@ -2,10 +2,7 @@ title: $:/plugins/Junopus/memoria/setting
 modifier: Junopus
 
 !!! Basic settings
-* "Start Memoria" icon: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="icon_start" />
 * "End Memoria" icon: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="icon_end" />
 
 !!! Advanced settings
-* Default username: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="default_user" />
-* Field prefix: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="prefix_field" />
 * Query prefix: <$edit-text tiddler="$:/plugins/Junopus/memoria/config" field="prefix_query" />
