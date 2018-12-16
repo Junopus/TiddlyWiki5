@@ -19,7 +19,7 @@ const config = $tw.wiki.getTiddler("$:/plugins/Junopus/memoria/config").fields;
 Export our filter function
 */
 exports.memoria = function(source,operator,options) {
-    const limit = operator.operand ? parseInt(operator.operand, 10) : parseInt(config.limit, 10);
+    //const limit = operator.operand ? parseInt(operator.operand, 10) : parseInt(config.limit, 10);
     const fieldName = lib.getMemoriaFieldName();
     const now = Date.now();
     let results = [];
@@ -51,10 +51,14 @@ exports.memoria = function(source,operator,options) {
         results.sort(function(a, b) {
             return b.overduerate - a.overduerate;
         });
-        /* Limit the number of elements */
-        results = results.slice(0, limit).map(function(val, i, arr) {
+        /* Extract titles */
+        results = results.map(function(val, i, arr) {
             return val.title;
         });
+        /* Limit the number of elements */
+        /*results = results.slice(0, limit).map(function(val, i, arr) {
+            return val.title;
+        });*/
     }
     return results;
 };
