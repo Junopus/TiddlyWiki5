@@ -7,7 +7,9 @@ tags: $:/tags/ViewTemplate
 <div style="text-align: right; padding: 0 20px;">
 <div style="font-size: 1.5em; color: coral;">
 <span style="font-family: cursive; font-style: italic;">Memoria</span> <span style="font-family: serif;">[<<memoriausername>>]</span>
+<$list filter="[<currentTiddler>!memoria[]]">
 <span style="font-size: 0.8em;">&gt;&gt;<<memoriaduedate "YYYY-MM-DD 0hh:0mm">></span>
+</$list>
 </div>
 <!--
 ViewTemplate for non-memoria tiddler
