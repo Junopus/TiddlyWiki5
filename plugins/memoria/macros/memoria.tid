@@ -2,21 +2,18 @@ title: $:/plugins/Junopus/memoria/ViewTemplate
 modifier: Junopus
 tags: $:/tags/ViewTemplate
 
-<$list filter="[<currentTiddler>!is[system]]">
+<$list filter="[<currentTiddler>!is[system]!has[draft.of]]">
 <br>
 <div style="text-align: right; padding: 0 20px;">
 <div style="font-size: 1.5em; color: coral;">
 <span style="font-family: cursive; font-style: italic;">Memoria</span> <span style="font-family: serif;">[<<memoriausername>>]</span>
+<span style="font-size: 0.8em;">&gt;&gt;<<memoriaduedate "YYYY-MM-DD 0hh:0mm">></span>
 </div>
 <!--
 ViewTemplate for non-memoria tiddler
 -->
-<$list filter="[<currentTiddler>!has[draft.of]!has:field<memoriafieldname>]">
-<$button class="tc-btn-memoria" actions=<<memoriarate>> >
-{{$:/plugins/Junopus/memoria/config!!icon_start}}
-<$action-sendmessage $message="tm-notify" $param="$:/plugins/Junopus/memoria/notifications/start" />
-<$action-navigate $to=<<currentTiddler>> />
-</$button>
+<$list filter="[<currentTiddler>!is[system]!has[draft.of]!has:field<memoriafieldname>]">
+<<memoria-buttons>>
 </$list>
 <!--
 ViewTemplate for non-due memoria tiddler
@@ -32,7 +29,7 @@ ViewTemplate for non-due memoria tiddler
 <!--
 ViewTemplate for due memoria tiddler
 -->
-<$list filter="[<currentTiddler>!has[draft.of]memoria[]]">
+<$list filter="[<currentTiddler>!is[system]!has[draft.of]memoria[]]">
 <<memoria-buttons>>
 </$list>
 </div>

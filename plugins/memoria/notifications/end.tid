@@ -1,4 +1,4 @@
 title: $:/plugins/Junopus/memoria/notifications/end
 modifier: Junopus
 
-<$transclude tiddler=<<choosetiddlerbytag $:/tags/MemoriaEnd>> />
+<$transclude tiddler=<<choosetiddlerbytag $:/tags/MemoriaNotificationEnd>> />

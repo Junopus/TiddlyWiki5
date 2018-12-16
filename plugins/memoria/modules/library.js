@@ -36,25 +36,22 @@ exports.getMemoriaFieldName = function() {
 };
 
 exports.getMemoriaAttrs = function(fieldString, timebase) {
-    let result = null;
     const attrs = fieldString.split(" ");
-    if(attrs.length === 3) {
-        result = {
-            interval:   parseInt(attrs[0], 10),
-            difficulty: parseFloat(attrs[1]),
-            lastreview: parseInt(attrs[2], 10)
-        };
-        result.isnew = false;
-        result.nextreview = result.lastreview + result.interval;
-        result.isdue = timebase > result.nextreview;
-        result.overduerate = (timebase - result.lastreview) / result.interval;
-    } else {
-        result = {
-            isnew: true,
-            isdue: true,
-            overduerate: parseInt(fieldString, 10)
-        }
-    }
+    const isnew = (attrs[0] === config.initial_interval) ? true : false;
+    const interval = parseInt(attrs[0], 10);
+    const difficulty = parseFloat(attrs[1]);
+    const lastreview = parseInt(attrs[2], 10);
+    const nextreview = lastreview + interval;
+
+    const result = {
+        interval: interval,
+        difficulty: difficulty,
+        lastreview: lastreview,
+        nextreview: nextreview,
+        isnew: isnew,
+        isdue: timebase > nextreview,
+        overduerate: (timebase - lastreview) / interval,
+    };
     return result;
 };
 

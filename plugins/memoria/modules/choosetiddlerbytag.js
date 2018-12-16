@@ -29,7 +29,6 @@ Run the macro
 exports.run = function(tag) {
     const candidates = $tw.wiki.getTiddlersWithTag(tag);
     const i = Math.floor(Math.random() * candidates.length);
-    console.log("random");
     return candidates[i];
 };
 
