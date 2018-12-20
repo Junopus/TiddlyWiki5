@@ -50,7 +50,7 @@ exports.getMemoriaAttrs = function(fieldString, timebase) {
         nextreview: nextreview,
         isnew: isnew,
         isdue: timebase > nextreview,
-        overduerate: (timebase - lastreview) / interval,
+        overduerate: (timebase - lastreview) / interval
     };
     return result;
 };
